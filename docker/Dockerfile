@@ -11,7 +11,7 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir jupyterlab pandas numpy matplotlib scikit-learn timm jupyterlab-rise
+    pip install --no-cache-dir jupyterlab pandas numpy matplotlib scikit-learn timm jupyterlab-rise ipywidgets nbdev
 RUN git clone https://github.com/fastai/fastbook.git /workspace/book
 WORKDIR /workspace
 EXPOSE 8888
