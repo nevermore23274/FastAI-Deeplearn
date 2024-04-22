@@ -11,10 +11,8 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir notebook pandas numpy matplotlib scikit-learn timm jupyterlab-rise
-RUN if [ ! -d "/workspace/book" ]; then \
-        git clone https://github.com/fastai/fastbook.git /workspace/book; \
-    fi
+    pip install --no-cache-dir jupyterlab pandas numpy matplotlib scikit-learn timm jupyterlab-rise
+RUN git clone https://github.com/fastai/fastbook.git /workspace/book
 WORKDIR /workspace
 EXPOSE 8888
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
